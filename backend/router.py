@@ -1,45 +1,37 @@
-"""
-BLOCK 6 · UEBUNG: Der intelligente Router
-=========================================
-Die Kernidee des ganzen Workshops als Code:
+"""LOESUNG Block 6 – naiver, aber ehrlicher Router."""
 
-    Private Daten oder simple Aufgabe  -> lokales Modell
-    Komplexes Reasoning, langer Kontext -> Cloud
-
-Implementiere choose_backend(). Starte naiv (Keywords + Laenge),
-wir diskutieren danach, was in Produktion besser waere.
-
-Haengst du fest?  ->  backend/solutions/router.py
-"""
-
-# Woerter, die auf private/interne Daten hindeuten.
-# TODO 1: Ergaenze die Liste – was waere in DEINER Firma "privat"?
 PRIVATE_KEYWORDS = [
-    "kunde", "kundin", "mitarbeiter", "lohn", "gehalt",
-    "vertraulich", "intern", "diagnose", "iban",
+    "kunde", "kundin", "mitarbeiter", "lohn", "gehalt", "vertraulich",
+    "intern", "diagnose", "iban", "ahv", "patient", "bewerbung", "kantonsspital",
 ]
+
+COMPLEX_HINTS = ["analysiere", "begruende", "begründe", "vergleiche ausfuehrlich",
+                 "schreibe einen aufsatz", "refactor", "architektur"]
 
 
 def is_private(text: str) -> bool:
-    """True, wenn der Text private/interne Daten enthalten koennte."""
-    # TODO 2: Pruefe, ob eines der PRIVATE_KEYWORDS im Text vorkommt
-    #         (Tipp: text.lower())
-    raise NotImplementedError("TODO 2: is_private implementieren")
+    t = text.lower()
+    return any(kw in t for kw in PRIVATE_KEYWORDS)
 
 
 def is_complex(text: str) -> bool:
-    """True, wenn die Aufgabe vermutlich Cloud-Niveau braucht."""
-    # TODO 3: Einfache Heuristik, z.B.:
-    #   - Text laenger als 2000 Zeichen  -> komplex
-    #   - Woerter wie "analysiere", "begruende", "schreibe einen Aufsatz"
-    raise NotImplementedError("TODO 3: is_complex implementieren")
+    t = text.lower()
+    return len(t) > 2000 or any(h in t for h in COMPLEX_HINTS)
 
 
 def choose_backend(messages: list[dict]) -> str:
-    """
-    Entscheidet 'local' oder 'cloud' fuer eine Konversation.
-    REGEL: Privat schlaegt IMMER alles andere. Compliance first.
-    """
-    # TODO 4: Alle User-Nachrichten zu einem Text zusammenfassen,
-    #         dann: privat -> "local", komplex -> "cloud", sonst -> "local"
-    raise NotImplementedError("TODO 4: choose_backend implementieren")
+    user_text = " ".join(m.get("content", "") for m in messages
+                         if m.get("role") == "user" and isinstance(m.get("content"), str))
+    if is_private(user_text):
+        return "local"          # Compliance schlaegt alles
+    if is_complex(user_text):
+        return "cloud"
+    return "local"              # Default: lokal ist gratis
+
+# Diskussionsfragen fuer den Workshop:
+# 1. Keywords sind schwach (Umlaute, Synonyme, Englisch) – was waere besser?
+#    -> Ein kleiner LOKALER Klassifikator entscheidet, was lokal bleiben muss.
+#       (Die Entscheidung selbst darf nie in die Cloud – sonst ist das Kind im Brunnen.)
+# 2. Wer pflegt die Liste? IT? Legal? -> Governance-Frage, nicht Technik.
+# 3. False Positives kosten Qualitaet, False Negatives kosten Compliance.
+#    In regulierten Branchen: im Zweifel IMMER lokal.
