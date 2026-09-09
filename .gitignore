@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Build-Output des Teilnehmer-Sets (admin/tools/build_teilnehmer_set.py)
+dist/
+
+# Grosse Binaries (Modelle) gehoeren nicht ins Repo
+*.gguf
+*.bin
+admin/whisper/
+
+# Generierte PDFs (admin/tools/make_pdf.sh)
+# Folien-PDFs liegen bewusst in docs/ und sind versioniert (Take-Home).
+# admin/slides/*.pdf
+
+# Generierte Handout-PDFs (admin/tools/make_handouts.sh)
+admin/handouts/

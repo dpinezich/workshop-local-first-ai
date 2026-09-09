@@ -1,0 +1,9 @@
+Datenschutz und Umgang mit Kundendaten
+
+Kundendaten werden ausschliesslich in der Schweiz gehostet und sind nach
+dem Prinzip der Datensparsamkeit zu bearbeiten. Zugriffe erfolgen rollen-
+basiert und werden protokolliert. Personendaten duerfen nur verschluesselt
+uebermittelt werden. Auskunftsbegehren von betroffenen Personen sind
+innert 30 Tagen zu beantworten und an den Datenschutzverantwortlichen
+weiterzuleiten. Datenschutzverletzungen sind unverzueglich intern zu
+melden; die Meldung an den EDÖB entscheidet die Geschaeftsleitung.

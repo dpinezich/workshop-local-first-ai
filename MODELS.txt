@@ -1,0 +1,12 @@
+# Zentrale Modellliste – wird von verify-setup.sh / .ps1 gelesen.
+# Format: <ollama-modellname> <pflicht|fallback|optional>   (KEINE Inline-Kommentare!)
+# Stand: 2. September 2026 (Ollama-Library geprueft)
+#
+# qwen3.5:9b        Chat UND Vision (multimodal), 6.6 GB, 256k Kontext, Q4_K_M
+# embeddinggemma    Embeddings fuer Block 5 (mehrsprachig – nomic-embed-text findet auf Deutsch 'Urlaub' nicht!)
+# qwen3.5:4b        Fallback bei 8 GB RAM / CPU-only (3.4 GB, ebenfalls multimodal)
+# qwen3.5:9b-q8_0   nur Veranstalter: Quantisierungs-Demo Block 2 (11 GB)
+qwen3.5:9b pflicht
+embeddinggemma pflicht
+qwen3.5:4b fallback
+qwen3.5:9b-q8_0 optional

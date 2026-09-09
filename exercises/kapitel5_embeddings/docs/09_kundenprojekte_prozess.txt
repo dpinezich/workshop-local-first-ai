@@ -1,0 +1,9 @@
+Prozess fuer Kundenprojekte
+
+Jedes Projekt startet mit einem Kickoff und einem schriftlichen Auftrag
+(Statement of Work). Der Projektstatus wird woechentlich im Tool "TrackIt"
+gepflegt (Ampel: gruen/gelb/rot). Rechnungsstellung erfolgt monatlich
+nach effektivem Aufwand, sofern kein Festpreis vereinbart ist. Bei
+Projektabschluss sind eine Retrospektive und die Archivierung der
+Projektdaten obligatorisch. Referenznennungen des Kunden benoetigen
+dessen schriftliche Freigabe durch den Account Manager.

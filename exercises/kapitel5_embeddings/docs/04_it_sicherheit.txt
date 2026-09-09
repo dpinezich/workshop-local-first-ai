@@ -1,0 +1,9 @@
+IT-Sicherheitsrichtlinie
+
+Passwoerter muessen mindestens 14 Zeichen lang sein; der Passwort-Manager
+"KeySafe" ist obligatorisch. Zwei-Faktor-Authentifizierung ist fuer alle
+Systeme aktiviert. Firmendaten duerfen ausschliesslich auf verwalteten
+Geraeten bearbeitet werden. USB-Sticks unbekannter Herkunft sind verboten.
+Phishing-Verdachtsfaelle sind sofort an security@muster-solutions.ch zu
+melden. Kundendaten duerfen niemals in oeffentliche Cloud-KI-Dienste
+eingegeben werden; dafuer steht der interne lokale KI-Stack bereit.
